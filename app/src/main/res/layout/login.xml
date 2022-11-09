@@ -10,7 +10,7 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".RegistrationActivity">
+    tools:context=".reg">
 
     <!-- TextView for heading -->
     <TextView

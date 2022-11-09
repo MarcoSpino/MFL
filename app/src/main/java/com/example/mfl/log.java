@@ -94,14 +94,15 @@ public class log extends AppCompatActivity {
 
                                     // hide the progress bar
                                     MediaRouteButton progressBar = null;
+
+                                    Intent myIntent = new Intent(log.this, home.class);
+                                    startActivity(myIntent);
+
                                     progressBar.setVisibility(View.GONE);
 
                                     // if sign-in is successful
                                     // intent to home activity
-                                    Intent intent
-                                            = new Intent(log.this,
-                                            MainActivity.class);
-                                    startActivity(intent);
+
                                 }
 
                                 else {
@@ -114,9 +115,11 @@ public class log extends AppCompatActivity {
 
                                     // hide the progress bar
                                     progressbar.setVisibility(View.GONE);
+
                                 }
                             }
                         });
     }
+
 }
 
