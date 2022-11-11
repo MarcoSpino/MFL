@@ -21,6 +21,7 @@ public class home extends AppCompatActivity{
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
+        java.text.DateFormat dateFormat = android.text.format.DateFormat.getDateFormat(getApplicationContext());
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
 
@@ -28,27 +29,34 @@ public class home extends AppCompatActivity{
         navigationView = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.body_container, new HomeFragment()).commit();
         navigationView.setSelectedItemId(R.id.nav_home);
-        navigationView.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
+        navigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+
 
             @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
+            public boolean onNavigationItemSelected(MenuItem item) {
                 Fragment fragment = null;
                 switch (item.getItemId()){
                     case R.id.nav_home:
                         fragment = new HomeFragment();
+
                         break;
                     case R.id.nav_2:
                         fragment = new secondoFragment();
+
                         break;
+
                     case R.id.nav_3:
                         fragment = new terzoFragment();
+                        
                         break;
                     case R.id.nav_4:
+
                         fragment = new quartoFragment();
-                        break;
+                        return true;
+
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
-            }
+                return true;}
 
 
         });

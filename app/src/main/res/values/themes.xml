@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MFL" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.MFL" parent="Theme.AppCompat.NoActionBar">
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_700</item>
@@ -13,5 +13,6 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
 </resources>
