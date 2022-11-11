@@ -98,7 +98,7 @@ public class log extends AppCompatActivity {
                                     Intent myIntent = new Intent(log.this, home.class);
                                     startActivity(myIntent);
 
-                                    progressBar.setVisibility(View.GONE);
+                                   // progressBar.setVisibility(View.GONE);
 
                                     // if sign-in is successful
                                     // intent to home activity
