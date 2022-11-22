@@ -52,7 +52,7 @@ public class home extends AppCompatActivity{
                     case R.id.nav_4:
 
                         fragment = new quartoFragment();
-                        return true;
+
 
                 }
                 getSupportFragmentManager().beginTransaction().replace(R.id.body_container, fragment).commit();
