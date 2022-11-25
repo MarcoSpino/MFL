@@ -5,16 +5,26 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.android.volley.toolbox.StringRequest;
 
 
 
@@ -45,6 +55,10 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    String url = "http://www.giantbomb.com/api/game/3030-4725/?api_key=6cda058679cecae3b068ecd416ab3eab3e2c5baf";
+
+    TextView prova;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -82,6 +96,30 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        final ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_home,container,false);
+
+
+        prova = (TextView) viewGroup.findViewById(R.id.prova1);
+        RequestQueue queue = Volley.newRequestQueue(this.getActivity());
+
+
+
+
+        return viewGroup;
     }
+    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+            (Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+
+                @Override
+                public void onResponse(JSONObject response) {
+                    prova.setText("Response: " + response.toString());
+                }
+            }, new Response.ErrorListener() {
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    // TODO: Handle error
+
+                }
+            });
 }
