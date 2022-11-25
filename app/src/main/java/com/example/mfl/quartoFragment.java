@@ -1,5 +1,7 @@
 package com.example.mfl;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +9,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +31,7 @@ public class quartoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
     TextView profilo;
+    Button bottone;
 
     public quartoFragment() {
         // Required empty public constructor
@@ -63,13 +67,14 @@ public class quartoFragment extends Fragment {
 
     }
 
+    @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView = inflater.inflate(R.layout.fragment_quarto, container, false);
+        final ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_quarto,container,false);
 
-        profilo = (TextView) rootView.findViewById(R.id.textView2);
+        profilo = (TextView) viewGroup.findViewById(R.id.textView2);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
             // User is signed in
@@ -78,13 +83,31 @@ public class quartoFragment extends Fragment {
         } else {
             // No user is signed in
         }
-        return rootView;
+
+
+
+
+
+
+
+        bottone = viewGroup.findViewById(R.id.button3);
+
+        bottone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(quartoFragment.this.getContext(), MainActivity.class));
+            }
+        });
+        return viewGroup;
+
+
+
+
+
+
 
     }
-
-
-
-
 
 
 

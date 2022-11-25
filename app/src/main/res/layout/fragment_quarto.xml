@@ -38,5 +38,19 @@
             android:textSize="32dp"
             android:textAlignment="center"
             android:text="TextView" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="178dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="110dp"
+            android:background="@color/blue"
+            android:text="ESCI"
+            android:textAlignment="center"
+            android:textSize="34dp"
+            android:onClick="logout"
+            />
+
+
     </LinearLayout>
 </FrameLayout>
