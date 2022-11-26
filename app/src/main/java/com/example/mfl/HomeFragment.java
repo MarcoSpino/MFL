@@ -1,23 +1,43 @@
 package com.example.mfl;
 
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.os.Handler;
+import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 
+import com.google.firebase.auth.FirebaseAuth;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-
-
-
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 
 /**
@@ -32,9 +52,13 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    String url = "http://www.giantbomb.com/api/game/3030-4725/?api_key=6cda058679cecae3b068ecd416ab3eab3e2c5baf";
+    String url = "https://www.giantbomb.com/api/games/3030-4725/?api_key=6cda058679cecae3b068ecd416ab3eab3e2c5baf&format=json&field_list=deck,name&filter=original_release_date:2020-05-10|2020-07-12";
+    ArrayList<String> nomegiochi = new ArrayList<>();
+    ArrayList<String> sviluppo = new ArrayList<>();
+    ArrayAdapter<String> listAdapter;
+    String data;
+    Button bottone;
 
-    TextView prova;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -59,7 +83,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,14 +92,21 @@ public class HomeFragment extends Fragment {
             String mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_home,container,false);
+        final ViewGroup viewGroup = (ViewGroup) inflater.inflate(R.layout.fragment_home, container, false);
+        bottone = viewGroup.findViewById(R.id.button5);
 
-
-        prova = (TextView) viewGroup.findViewById(R.id.prova1);
+        bottone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new fetchdata().start();
+            }
+        });
 
 
 
@@ -84,5 +114,62 @@ public class HomeFragment extends Fragment {
 
         return viewGroup;
     }
+
+
+
+
+        class fetchdata extends Thread {
+
+
+
+        @Override
+    public void run(){
+
+
+
+            try {
+                URL url = new URL ("https://www.giantbomb.com/api/games/3030-4725/?api_key=6cda058679cecae3b068ecd416ab3eab3e2c5baf&format=json&field_list=name&filter=original_release_date:2020-05-10|2020-07-12");
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                String line;
+
+                while ((line = bufferedReader.readLine()) != null){
+                    data = data + line;
+                }
+
+                if(!data.isEmpty()){
+
+                    JSONObject jsonObject = new JSONObject(data);
+                    JSONArray risultati = jsonObject.getJSONArray("results");
+                    nomegiochi.clear();
+                    for (int i = 0; i < risultati.length(); i++){
+                        JSONObject nome = risultati.getJSONObject(i);
+
+                        if(nome == null)
+                        {
+
+                        }else
+                        {
+                            String nomevero = nome.getString("name");
+                            nomegiochi.add(nomevero);
+                        }
+
+
+
+                    }
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+
+        }
+    }
+
 
 }
