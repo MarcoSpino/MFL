@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MFL" parent="Theme.AppCompat.NoActionBar">
+    <style name="Theme.MFL" parent="Theme.Material3.DayNight.NoActionBar">
 
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_700</item>
@@ -15,6 +15,8 @@
 
         <!-- Customize your theme here. -->
         <item name="colorControlHighlight">@color/red</item>
+        <!-- MaterialComponents attributes (needed if parent="Theme.AppCompat"). -->
+
 
 
     </style>

@@ -15,6 +15,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,9 +23,9 @@ import com.google.android.gms.tasks.Task;
 
 public class reg extends AppCompatActivity {
 
-    private EditText emailTextView, passwordTextView;
+    private TextInputEditText emailTextView, passwordTextView;
     private Button Btn;
-    private ProgressBar progressbar;
+;
     private FirebaseAuth mAuth;
 
     @Override
@@ -40,7 +41,6 @@ public class reg extends AppCompatActivity {
         emailTextView = findViewById(R.id.email);
         passwordTextView = findViewById(R.id.passwd);
         Btn = findViewById(R.id.btnregister);
-        progressbar = findViewById(R.id.progressbar);
 
         // Set on Click Listener on Registration button
         Btn.setOnClickListener(new View.OnClickListener() {
@@ -55,8 +55,6 @@ public class reg extends AppCompatActivity {
     private void registerNewUser()
     {
 
-        // show the visibility of progress bar to show loading
-        progressbar.setVisibility(View.VISIBLE);
 
         // Take the value of two edit texts in Strings
         String email, password;
@@ -80,14 +78,13 @@ public class reg extends AppCompatActivity {
         }
 
         // create new user or register new user
-        mAuth
-                .createUserWithEmailAndPassword(email, password)
+        mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task)
                     {
-                        View progressBar = null;
+
                         if (task.isSuccessful()) {
                             Toast.makeText(getApplicationContext(),
                                             "Registration successful!",
@@ -95,7 +92,6 @@ public class reg extends AppCompatActivity {
                                     .show();
 
                             // hide the progress bar
-                            progressBar.setVisibility(View.GONE);
 
                             // if the user created intent to login activity
                             Intent intent
@@ -112,8 +108,8 @@ public class reg extends AppCompatActivity {
                                             Toast.LENGTH_LONG)
                                     .show();
 
-                            // hide the progress bar
-                            progressBar.setVisibility(View.GONE);
+
+
                         }
                     }
                 });
