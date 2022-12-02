@@ -42,17 +42,17 @@ public class home extends AppCompatActivity{
 
                         break;
                     case R.id.nav_2:
-                        fragment = new secondoFragment();
+                        fragment = new SearchFragment();
 
                         break;
 
                     case R.id.nav_3:
-                        fragment = new terzoFragment();
+                        fragment = new FavouriteGameFragment();
                         
                         break;
                     case R.id.nav_4:
 
-                        fragment = new quartoFragment();
+                        fragment = new UserProfileFragment();
 
 
                 }
