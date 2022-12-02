@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".quartoFragment"
+    tools:context=".UserProfileFragment"
     android:background="@color/violet"
     >
 
@@ -17,9 +17,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
-            android:textSize="32dp"
+            android:text="TextView"
             android:textAlignment="center"
-            android:text="TextView" />
+            android:textSize="32dp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -41,15 +41,14 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="178dp"
+            android:layout_width="285dp"
             android:layout_height="60dp"
             android:layout_marginLeft="110dp"
             android:background="@color/blue"
-            android:text="ESCI"
-            android:textAlignment="center"
-            android:textSize="34dp"
             android:onClick="logout"
-            />
+            android:text="DISCONNETTI"
+            android:textAlignment="center"
+            android:textSize="34dp" />
 
 
     </LinearLayout>

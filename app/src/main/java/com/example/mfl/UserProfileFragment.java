@@ -17,10 +17,10 @@ import com.google.firebase.auth.FirebaseUser;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link quartoFragment#newInstance} factory method to
+ * Use the {@link UserProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class quartoFragment extends Fragment {
+public class UserProfileFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -33,7 +33,7 @@ public class quartoFragment extends Fragment {
     TextView profilo;
     Button bottone;
 
-    public quartoFragment() {
+    public UserProfileFragment() {
         // Required empty public constructor
     }
 
@@ -46,8 +46,8 @@ public class quartoFragment extends Fragment {
      * @return A new instance of fragment quartoFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static quartoFragment newInstance(String param1, String param2) {
-        quartoFragment fragment = new quartoFragment();
+    public static UserProfileFragment newInstance(String param1, String param2) {
+        UserProfileFragment fragment = new UserProfileFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -72,7 +72,7 @@ public class quartoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        final ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_quarto,container,false);
+        final ViewGroup viewGroup =(ViewGroup)inflater.inflate(R.layout.fragment_userprofile,container,false);
 
         profilo = (TextView) viewGroup.findViewById(R.id.textView2);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -96,7 +96,7 @@ public class quartoFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(quartoFragment.this.getContext(), MainActivity.class));
+                startActivity(new Intent(UserProfileFragment.this.getContext(), MainActivity.class));
             }
         });
         return viewGroup;
