@@ -122,7 +122,7 @@ public class HomeFragment extends Fragment {
         // array as a third parameter.
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, your_array_list );
 
-        lv.setAdapter(arrayAdapter);
+        //lv.setAdapter(arrayAdapter);   !!!!!!! ATTENZIONE !!!!!!!!
 
         return viewGroup;
     }

@@ -32,7 +32,7 @@ public class reg extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login);
+        setContentView(R.layout.log_login);
 
         // taking FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
