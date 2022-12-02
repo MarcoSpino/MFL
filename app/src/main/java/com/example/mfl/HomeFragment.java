@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 
@@ -38,6 +39,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -52,10 +54,9 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    String url = "https://www.giantbomb.com/api/games/3030-4725/?api_key=6cda058679cecae3b068ecd416ab3eab3e2c5baf&format=json&field_list=deck,name&filter=original_release_date:2020-05-10|2020-07-12";
     ArrayList<String> nomegiochi = new ArrayList<>();
     ArrayList<String> sviluppo = new ArrayList<>();
-    ArrayAdapter<String> listAdapter;
+    private ListView lv;
     String data;
     Button bottone;
 
@@ -108,9 +109,20 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        lv = (ListView) getActivity().findViewById(R.id.lista);
+
+        // Instanciating an array list (you don't need to do this,
+        // you already have yours).
+        List<String> your_array_list = new ArrayList<String>();
+        your_array_list.add(nomegiochi.toString());
 
 
+        // This is the array adapter, it takes the context of the activity as a
+        // first parameter, the type of list view as a second parameter and your
+        // array as a third parameter.
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, your_array_list );
 
+        lv.setAdapter(arrayAdapter);
 
         return viewGroup;
     }
@@ -140,20 +152,22 @@ public class HomeFragment extends Fragment {
 
                 if(!data.isEmpty()){
 
+                    String crappyPrefix = "null";
+
+                    if(data.startsWith(crappyPrefix)){
+                        data = data.substring(crappyPrefix.length(), data.length());
+                    }
+
                     JSONObject jsonObject = new JSONObject(data);
                     JSONArray risultati = jsonObject.getJSONArray("results");
                     nomegiochi.clear();
                     for (int i = 0; i < risultati.length(); i++){
                         JSONObject nome = risultati.getJSONObject(i);
 
-                        if(nome == null)
-                        {
 
-                        }else
-                        {
                             String nomevero = nome.getString("name");
                             nomegiochi.add(nomevero);
-                        }
+
 
 
 
@@ -166,6 +180,8 @@ public class HomeFragment extends Fragment {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
+
 
 
         }
