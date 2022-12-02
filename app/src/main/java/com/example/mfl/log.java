@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Button;
 
 import androidx.annotation.NonNull;
@@ -30,7 +29,7 @@ public class log extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login2);
+        setContentView(R.layout.log_login);
         // taking instance of FirebaseAuth
         mAuth = FirebaseAuth.getInstance();
 
@@ -121,6 +120,28 @@ public class log extends AppCompatActivity {
                             }
                         });
     }
+
+    private void logoutUserAccount()
+    {
+
+        // show the visibility of progress bar to show loading
+        progressbar.setVisibility(View.VISIBLE);
+
+        // sign out the user
+        mAuth.signOut();
+
+        // show a toast message of success
+        Toast.makeText(getApplicationContext(),
+                        "Logout successful!",
+                        Toast.LENGTH_LONG)
+                .show();
+
+        // redirect to the home page (login and register)
+        Intent myIntent = new Intent(log.this, home.class);
+        startActivity(myIntent);
+
+    }
+
 
 }
 
