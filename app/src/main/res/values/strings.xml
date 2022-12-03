@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">MFL</string>
+    <string name="app_name" translatable="false">MFL</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blanEEEEEEEEE</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blanEEEEEEEEE</string>
+    <string name="accedi" translatable="false">Accedi</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="password" translatable="false">Password</string>
+
 </resources>
