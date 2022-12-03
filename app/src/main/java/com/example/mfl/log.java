@@ -1,12 +1,14 @@
 package com.example.mfl;
 
 import android.app.MediaRouteButton;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -54,11 +56,11 @@ public class log extends AppCompatActivity {
             }
         });
 
-        SpannableString ss = new SpannableString("@String/noaccount");
+        SpannableString ss = new SpannableString("Non hai un account? Registrati");
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                startActivity(new Intent(log.this, reg.class));
+                startActivity(new Intent(log.this, MainActivity.class));
             }
             @Override
             public void updateDrawState(TextPaint ds) {
@@ -66,10 +68,12 @@ public class log extends AppCompatActivity {
                 ds.setUnderlineText(false);
             }
         };
-        ss.setSpan(clickableSpan, 27, 37, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, 20, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        TextView textView = (TextView) findViewById(R.id.noaccount);
-        textView.setText(ss);
+        TextView noaccount = (TextView) findViewById(R.id.noaccount);
+        noaccount.setText(ss);
+        noaccount.setMovementMethod(LinkMovementMethod.getInstance());
+        noaccount.setHighlightColor(Color.TRANSPARENT);
     }
 
 
