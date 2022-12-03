@@ -13,6 +13,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.AuthResult;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -20,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 
 public class log extends AppCompatActivity {
 
-    private EditText emailTextView, passwordTextView;
+    private TextInputLayout emailTextView, passwordTextView;
     private Button Btn;
     private ProgressBar progressbar;
 
@@ -58,8 +59,8 @@ public class log extends AppCompatActivity {
 
         // Take the value of two edit texts in Strings
         String email, password;
-        email = emailTextView.getText().toString();
-        password = passwordTextView.getText().toString();
+        email = emailTextView.getEditText().getText().toString();
+        password = passwordTextView.getEditText().getText().toString();
 
         // validations for input email and password
         if (TextUtils.isEmpty(email)) {

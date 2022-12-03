@@ -16,6 +16,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
+        android:transitionName="logo"
         android:src="@drawable/immagine"
         android:layout_gravity="center"
         />
@@ -23,6 +24,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:transitionName="logotesto"
         android:fontFamily="@font/black_ops_one"
         android:text="Benvenuto"
         android:textSize="40sp"
@@ -33,6 +35,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:transitionName="testoreg"
         android:text="Registrati"
         android:textSize="18sp"
         />
@@ -41,6 +44,7 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:transitionName="logo2"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:hint="Nome"
         >
@@ -48,6 +52,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="logo3"
             android:inputType="text"
             />
 
@@ -56,6 +61,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/username"
         android:layout_width="match_parent"
+        android:transitionName="logo4"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:hint="Username"
@@ -66,6 +72,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="logo5"
             android:inputType="text"
             />
 
@@ -73,6 +80,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/mail"
+        android:transitionName="logo6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
@@ -80,6 +88,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:transitionName="logo7"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
@@ -90,6 +99,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/pw"
         android:layout_width="match_parent"
+        android:transitionName="logo8"
         android:layout_height="wrap_content"
         style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
         android:hint="Password"
@@ -100,6 +110,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:transitionName="logo9"
             android:inputType="textPassword"
             />
 
@@ -110,19 +121,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="reg"
+        android:transitionName="logo10"
         android:backgroundTint="@color/dark_blue"
         android:text="REGISTRATI"
         android:textColor="#fff" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/prova1"
         android:layout_width="match_parent"
+        android:transitionName="logo11"
         android:layout_height="24dp"
-        android:layout_marginVertical="70dp"
+        android:fontFamily="@font/black_ops_one"
         android:gravity="center"
         android:text="Se possiedi già un account clicca qui"
-        android:textColorLink="@color/blue"
-        android:fontFamily="@font/black_ops_one"
-        />
+        android:textColorLink="@color/blue" />
 
 </LinearLayout>
