@@ -1,17 +1,27 @@
 package com.example.mfl;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
-Button button;
+
+    private TextInputLayout  emailTextView, passwordTextView;
+    private Button Btn;
     private FirebaseAuth mAuth;
 
     @Override
@@ -19,12 +29,23 @@ Button button;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
+
+        emailTextView = findViewById(R.id.mail);
+        passwordTextView = findViewById(R.id.pw);
+        Btn = findViewById(R.id.regbottone);
         if (mAuth.getCurrentUser() != null) {
             // User is signed in (getCurrentUser() will be null if not signed in)
             Intent intent = new Intent(this, home.class);
             startActivity(intent);
             finish();
         }
+        Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                registerNewUser();
+            }
+        });
     }
     @Override
     public void onBackPressed() {
@@ -34,8 +55,69 @@ Button button;
         startActivity(intent);
     }
 
+    private void registerNewUser()
+    {
 
 
+        // Take the value of two edit texts in Strings
+        String email, password;
+        email = emailTextView.getEditText().getText().toString();
+        password = passwordTextView.getEditText().getText().toString();
+
+        // Validations for input email and password
+        if (TextUtils.isEmpty(email)) {
+            Toast.makeText(getApplicationContext(),
+                            "Please enter email!!",
+                            Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+        if (TextUtils.isEmpty(password)) {
+            Toast.makeText(getApplicationContext(),
+                            "Please enter password!!",
+                            Toast.LENGTH_LONG)
+                    .show();
+            return;
+        }
+
+        // create new user or register new user
+        mAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task)
+                    {
+
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(),
+                                            "Registration successful!",
+                                            Toast.LENGTH_LONG)
+                                    .show();
+
+                            // hide the progress bar
+
+                            // if the user created intent to login activity
+                            Intent intent
+                                    = new Intent(MainActivity.this, MainActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+
+                            // Registration failed
+                            Toast.makeText(
+                                            getApplicationContext(),
+                                            "Registration failed!!"
+                                                    + " Please try again later",
+                                            Toast.LENGTH_LONG)
+                                    .show();
+
+
+
+                        }
+                    }
+                });
+    }
+/*
     public void reg(View View){
         Intent intent = new Intent(this, reg.class);
         startActivity(intent);
@@ -44,4 +126,7 @@ Button button;
         Intent intent = new Intent(this, log.class);
         startActivity(intent);
     }
+
+ */
+
 }
