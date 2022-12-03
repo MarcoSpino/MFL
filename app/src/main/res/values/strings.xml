@@ -5,5 +5,8 @@
     <string name="accedi" translatable="false">Accedi</string>
     <string name="email" translatable="false">Email</string>
     <string name="password" translatable="false">Password</string>
+    <string name="passdime" translatable="false">Password dimenticata</string>
+    <string name="txt_or" translatable="false">OR</string>
+    <string name="noaccount" translatable="false">Non hai un account?</string>
 
 </resources>
