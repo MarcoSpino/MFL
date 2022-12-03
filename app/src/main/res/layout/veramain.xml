@@ -10,9 +10,9 @@ android:background="#F2F1DD"
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gf"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:background="#F2F1DD"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
