@@ -3,9 +3,14 @@ package com.example.mfl;
 import android.app.MediaRouteButton;
 import android.os.Bundle;
 import android.content.Intent;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.Button;
@@ -48,6 +53,23 @@ public class log extends AppCompatActivity {
                 loginUserAccount();
             }
         });
+
+        SpannableString ss = new SpannableString("@String/noaccount");
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(View textView) {
+                startActivity(new Intent(log.this, reg.class));
+            }
+            @Override
+            public void updateDrawState(TextPaint ds) {
+                super.updateDrawState(ds);
+                ds.setUnderlineText(false);
+            }
+        };
+        ss.setSpan(clickableSpan, 27, 37, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        TextView textView = (TextView) findViewById(R.id.noaccount);
+        textView.setText(ss);
     }
 
 
@@ -142,7 +164,6 @@ public class log extends AppCompatActivity {
         startActivity(myIntent);
 
     }
-
 
 }
 

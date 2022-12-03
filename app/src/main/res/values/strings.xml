@@ -7,6 +7,7 @@
     <string name="password" translatable="false">Password</string>
     <string name="passdime" translatable="false">Password dimenticata</string>
     <string name="txt_or" translatable="false">OR</string>
-    <string name="noaccount" translatable="false">Non hai un account?</string>
+    <string name="noaccount" translatable="false">Non hai un account? Registrati</string>
+    <string name="reg" translatable="false">Registrati</string>
 
 </resources>
