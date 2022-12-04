@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Linear Layout with vertical orientation and other properties -->
+<?xml version="1.0" encoding="utf-8"?><!-- Linear Layout with vertical orientation and other properties -->
+
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -9,164 +9,168 @@
     android:layout_height="match_parent"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="15dp"
     tools:context=".log">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/component_1"
+        android:layout_gravity="top"
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:scaleType="fitXY"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:transitionName="logo"
-            android:src="@drawable/immagine"
-            android:layout_gravity="center"
-            />
-    </LinearLayout>
-    <!-- TextView for heading -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/black_ops_one"
-        android:textSize="40sp"
-        android:gravity="center"
-        android:text="@string/accedi" />
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:padding="15dp"
+        tools:context=".log">
 
 
-    <com.google.android.material.textfield.TextInputLayout
-
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/email"
-        app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/password"
-        app:passwordToggleEnabled="true"
-        app:startIconDrawable="@drawable/ic_baseline_password_24">
-
-        <com.google.android.material.textfield.TextInputEditText
-
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <!-- Password dimenticata-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:gravity="right"
-        android:text="@string/passdime" />
-
-
-    <!-- Button for Login with text "Login" -->
-    <Button
-        android:id="@+id/login"
-        style="@style/Widget.Material3.Button.ElevatedButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="@string/accedi" />
-
-    <RelativeLayout
-        android:id="@+id/relative_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/login">
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="24dp"
-            android:layout_toStartOf="@id/textview_or"
-            android:background="@color/light_grey" />
-
+        <!-- TextView for heading -->
         <TextView
-            android:id="@+id/textview_or"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:text="@string/txt_or" />
-
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="24dp"
-            android:layout_toEndOf="@id/textview_or"
-            android:background="@color/light_grey" />
-
-    </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/button_google_login"
-            style="@style/Widget.Material3.Button.ElevatedButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:gravity="center"
-            android:textColor="@color/google_login_text"
-            android:textSize="14sp"
-            app:backgroundTint="@color/google_login_button"
-            app:icon="@drawable/googleg_standard_color_18"
-            app:iconGravity="textStart"
-            app:iconTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relative_layout" />
-    </LinearLayout>
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1"
-        android:gravity="center|bottom"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/noaccount"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/black_ops_one"
             android:gravity="center"
-            android:textSize="20sp"
-            android:text="@string/noaccount" />
+            android:text="@string/accedi"
+            android:textSize="40sp" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email"
+            app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/password"
+            app:passwordToggleEnabled="true"
+            app:startIconDrawable="@drawable/ic_baseline_password_24">
+
+            <com.google.android.material.textfield.TextInputEditText
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Password dimenticata-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:gravity="right"
+            android:text="@string/passdime" />
+
+
+        <!-- Button for Login with text "Login" -->
+        <Button
+            android:id="@+id/login"
+            style="@style/Widget.Material3.Button.ElevatedButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/accedi" />
+
+        <RelativeLayout
+            android:id="@+id/relative_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/login">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="24dp"
+                android:layout_toStartOf="@id/textview_or"
+                android:background="@color/light_grey" />
+
+            <TextView
+                android:id="@+id/textview_or"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:text="@string/txt_or" />
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="24dp"
+                android:layout_toEndOf="@id/textview_or"
+                android:background="@color/light_grey" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/button_google_login"
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:textColor="@color/google_login_text"
+                android:textSize="14sp"
+                app:backgroundTint="@color/google_login_button"
+                app:icon="@drawable/googleg_standard_color_18"
+                app:iconGravity="textStart"
+                app:iconTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/relative_layout" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dip"
+            android:layout_weight="1"
+            android:gravity="center|bottom"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/noaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/black_ops_one"
+                android:gravity="center"
+                android:text="@string/noaccount"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <!-- ProgressBar for Loading Time -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone" />
     </LinearLayout>
-
-    <!-- ProgressBar for Loading Time -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
-
 </LinearLayout>

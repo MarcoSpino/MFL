@@ -11,6 +11,8 @@ import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -74,6 +76,7 @@ public class log extends AppCompatActivity {
         noaccount.setText(ss);
         noaccount.setMovementMethod(LinkMovementMethod.getInstance());
         noaccount.setHighlightColor(Color.TRANSPARENT);
+
     }
 
 
