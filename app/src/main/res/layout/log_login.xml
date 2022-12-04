@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Linear Layout with vertical orientation and other properties -->
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
@@ -12,27 +11,42 @@
     android:orientation="vertical"
     android:padding="15dp"
     tools:context=".log">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:transitionName="logo"
+            android:src="@drawable/immagine"
+            android:layout_gravity="center"
+            />
+    </LinearLayout>
     <!-- TextView for heading -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/black_ops_one"
+        android:textSize="40sp"
         android:gravity="center"
-        android:text="@string/accedi"/>
+        android:text="@string/accedi" />
 
 
     <com.google.android.material.textfield.TextInputLayout
 
-        android:layout_width="match_parent"
         android:id="@+id/email"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/email">
+        android:hint="@string/email"
+        app:startIconDrawable="@drawable/ic_baseline_alternate_email_24">
 
         <com.google.android.material.textfield.TextInputEditText
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
+            android:layout_height="wrap_content" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -42,33 +56,33 @@
         android:layout_height="wrap_content"
         android:hint="@string/password"
         app:passwordToggleEnabled="true"
-        >
+        app:startIconDrawable="@drawable/ic_baseline_password_24">
 
         <com.google.android.material.textfield.TextInputEditText
 
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <!-- Password dimenticata-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="right"
-        android:text="@string/passdime"/>
+        android:text="@string/passdime" />
 
 
     <!-- Button for Login with text "Login" -->
     <Button
-        style="@style/Widget.Material3.Button.ElevatedButton"
         android:id="@+id/login"
+        style="@style/Widget.Material3.Button.ElevatedButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/accedi"
-        />
+        android:text="@string/accedi" />
 
     <RelativeLayout
         android:id="@+id/relative_layout"
@@ -109,22 +123,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center" >
+        android:gravity="center"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/button_google_login"
+            style="@style/Widget.Material3.Button.ElevatedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginTop="15dp"
-            android:textSize="14sp"
+            android:gravity="center"
             android:textColor="@color/google_login_text"
+            android:textSize="14sp"
             app:backgroundTint="@color/google_login_button"
             app:icon="@drawable/googleg_standard_color_18"
             app:iconGravity="textStart"
             app:iconTint="@null"
-            style="@style/Widget.Material3.Button.ElevatedButton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/relative_layout" />
@@ -133,17 +147,19 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal" >
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center|bottom"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/noaccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/black_ops_one"
             android:gravity="center"
-            android:text="@string/noaccount"
-            android:fontFamily="@font/black_ops_one"/>
+            android:textSize="20sp"
+            android:text="@string/noaccount" />
     </LinearLayout>
 
     <!-- ProgressBar for Loading Time -->
