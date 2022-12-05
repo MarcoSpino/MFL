@@ -38,6 +38,7 @@ public class log extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_login);
         // taking instance of FirebaseAuth
