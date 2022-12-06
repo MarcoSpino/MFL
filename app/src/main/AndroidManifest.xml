@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@drawable/immagine"
-        android:label="@string/app_name"
+        android:label="@string/nome_app"
         android:roundIcon="@drawable/immagine"
         android:supportsRtl="true"
         android:theme="@style/Theme.MFL"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Profile"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".veraa"
             android:exported="true">
@@ -32,32 +40,28 @@
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-            </meta-data>
+                android:value=".MainActivity"></meta-data>
         </activity>
         <activity
             android:name=".MainActivity"
             android:parentActivityName=".veraa">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-            </meta-data>
+                android:value=".MainActivity"></meta-data>
         </activity>
         <activity
             android:name=".log"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity">
-            </meta-data>
+                android:value=".MainActivity"></meta-data>
         </activity>
         <activity
             android:name=".home"
             android:parentActivityName=".log">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".log">
-            </meta-data>
+                android:value=".log"></meta-data>
         </activity>
 
         <meta-data
