@@ -141,7 +141,7 @@
                 android:textSize="14sp"
                 app:backgroundTint="@color/google_login_button"
                 app:icon="@drawable/googleg_standard_color_18"
-                app:iconGravity="textStart"
+                app:iconGravity="textTop"
                 app:iconTint="@null"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

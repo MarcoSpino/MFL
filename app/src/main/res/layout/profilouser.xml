@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Profile"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="290dp"
+        android:padding="20dp"
+        android:background="@color/primo"
+        >
+
+        <ImageView
+            android:id="@+id/profilo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile1"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/nomeuser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marco Spinelli"
+            android:includeFontPadding="false"
+            android:textSize="20sp"
+            android:fontFamily="@font/black_ops_one"
+            android:layout_toRightOf="@id/profilo"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            />
+
+        <TextView
+            android:id="@+id/nomeuser2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="marcospino"
+            android:textSize="14sp"
+            android:includeFontPadding="false"
+            android:layout_toRightOf="@id/profilo"
+            android:layout_below="@id/nomeuser"
+            android:layout_marginLeft="10dp"
+            />
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:layout_marginTop="-80dp"
+        >
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/primo"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:paddingTop="10dp"
+                    android:src="@drawable/preferitiprofilo"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/npref"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="12"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/black_ops_one"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Preferiti"
+                    android:textSize="14sp"
+                    android:layout_below="@id/npref"
+                    android:layout_centerHorizontal="true"/>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="125dp"
+            android:layout_weight="1"
+            android:elevation="10dp"
+            android:layout_margin="10dp"
+            app:cardBackgroundColor="@color/primo"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/ic_baseline_rate_review_24"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/nrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textSize="20sp"
+                    android:fontFamily="@font/black_ops_one"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:id="@+id/descrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Recensioni"
+                    android:textSize="14sp"
+                    android:layout_below="@id/nrev"
+                    android:layout_centerHorizontal="true"/>
+
+
+
+
+            </RelativeLayout>
+
+
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:text="Nome completo:"
+            android:textSize="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/nomeutente"
+            android:fontFamily="@font/black_ops_one"
+            android:text="Marco Spinelli"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Nome utente:"
+            android:textSize="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/username"
+            android:fontFamily="@font/black_ops_one"
+            android:text="marcospino"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:text="Indirizzo E-mail:"
+            android:textSize="13dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/mail"
+            android:text="spino@gmail.com"
+            android:textSize="18dp"
+            android:textAlignment="center"
+            android:fontFamily="@font/black_ops_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+
+
+        
+        
+        
+        
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/regbottone"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="reg"
+        android:layout_marginLeft="20dp"
+        android:backgroundTint="@color/dark_blue"
+        android:text="Cambia password"
+        android:textColor="#fff" />
+</LinearLayout>
+
+

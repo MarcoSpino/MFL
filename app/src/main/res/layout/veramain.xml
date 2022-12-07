@@ -15,7 +15,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="118dp"
+        android:layout_marginBottom="126dp"
         android:background="#F2F1DD"
         android:src="@drawable/gameslist"
         app:layout_constraintBottom_toBottomOf="parent"

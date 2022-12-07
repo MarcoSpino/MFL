@@ -1,18 +1,14 @@
 package com.example.mfl;
 
 import android.app.MediaRouteButton;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.content.Intent;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
 import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,7 +34,6 @@ public class log extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_login);
         // taking instance of FirebaseAuth
@@ -59,11 +54,11 @@ public class log extends AppCompatActivity {
             }
         });
 
-        SpannableString ss = new SpannableString("Non hai un account? Registrati");
+        SpannableString ss = new SpannableString("@String/noaccount");
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
-                startActivity(new Intent(log.this, MainActivity.class));
+                startActivity(new Intent(log.this, reg.class));
             }
             @Override
             public void updateDrawState(TextPaint ds) {
@@ -71,13 +66,10 @@ public class log extends AppCompatActivity {
                 ds.setUnderlineText(false);
             }
         };
-        ss.setSpan(clickableSpan, 20, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, 27, 37, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        TextView noaccount = (TextView) findViewById(R.id.noaccount);
-        noaccount.setText(ss);
-        noaccount.setMovementMethod(LinkMovementMethod.getInstance());
-        noaccount.setHighlightColor(Color.TRANSPARENT);
-
+        TextView textView = (TextView) findViewById(R.id.noaccount);
+        textView.setText(ss);
     }
 
 
