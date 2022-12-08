@@ -54,7 +54,7 @@ public class log extends AppCompatActivity {
             }
         });
 
-        SpannableString ss = new SpannableString("@String/noaccount");
+        SpannableString ss = new SpannableString("Non hai un account? Registrati");
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(View textView) {
@@ -66,7 +66,7 @@ public class log extends AppCompatActivity {
                 ds.setUnderlineText(false);
             }
         };
-        ss.setSpan(clickableSpan, 27, 37, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(clickableSpan, 20, 30, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         TextView textView = (TextView) findViewById(R.id.noaccount);
         textView.setText(ss);
